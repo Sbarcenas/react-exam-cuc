@@ -12,12 +12,17 @@ const Main = styled(Content)`
 const CustomButton = styled(Button).attrs(()=>({size: 'large'}))`
     margin: 0 15px;
     min-width: 100px;
+    color: white;
+    &:hover {
+        opacity: 0.8;
+        background: rgba(50, 168, 82);
+    }
     ${({type}) => type === 'primary' ? css`
             background: rgba(50, 168, 82);
             border: none;
             &:focus {
                 outline: none;
-                box-shadow: 0px 0px 2px red;
+                box-shadow: 1px 1px 10px rgba(50, 168, 82, .4);
                 background: rgba(50, 168, 82);
                 color: white;
             }
@@ -26,7 +31,7 @@ const CustomButton = styled(Button).attrs(()=>({size: 'large'}))`
             border: none;
               &:focus {
                 outline: none;
-                box-shadow: 0px 0px 2px red;
+                border: 1px solid rgba(50, 168, 82);
                 background: rgba(50, 168, 82, .3);
                 color: white;
               }
