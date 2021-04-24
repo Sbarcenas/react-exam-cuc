@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {Typography} from "antd";
-import {CustomButton} from "../views/Home /Styles";
+import {CustomButton} from "../views/Home/Styles";
 const {Paragraph} = Typography
 
 export const ErrorModal = styled.div`
