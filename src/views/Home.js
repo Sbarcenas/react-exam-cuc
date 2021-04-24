@@ -77,6 +77,18 @@ const DATA = [
 
 function Home(props) {
     const [pos, setPos] = useState(0)
+    function back() {
+        if(pos > 0) setPos(pos - 1);
+    }
+
+    function next() {
+        if(pos < DATA.length) setPos(pos + 1);
+    }
+
+    function restart() {
+        if(pos > 0) setPos(0);
+    }
+
     return (
         <Layout>
             <Header>Header</Header>
@@ -84,10 +96,10 @@ function Home(props) {
                 <Row align="middle" justify='center' style={{height: '100%'}} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col lg={12} sm={24}>
                         <Row justify='center' style={{marginTop:20}}>
-                        <CustomButton type="secondary" size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton type={pos < 1 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Restart
                         </CustomButton>
-                        <CustomButton type="secondary" size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton type={pos <= 0 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Prev
                         </CustomButton>
                         <CustomButton type="primary" size={'Large'} color={'rgba(50, 168, 82, 1)'}>
@@ -96,10 +108,10 @@ function Home(props) {
                         </Row>
                         <Card>
                             <Card.Title>
-                                {DATA[0].title}
+                                {DATA[pos].title}
                             </Card.Title>
                             <Card.Body>
-                                {DATA[0].text}
+                                {DATA[pos].text}
                             </Card.Body>
                         </Card>
                     </Col>
