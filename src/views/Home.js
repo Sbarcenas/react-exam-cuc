@@ -15,15 +15,21 @@ const CustomButton = styled(Button).attrs(()=>({size: 'large'}))`
     ${({type}) => type === 'primary' ? css`
             background: rgba(50, 168, 82);
             border: none;
-            &:active{
-              background: rgba(50, 168, 82);
+            &:focus {
+                outline: none;
+                box-shadow: 0px 0px 2px red;
+                background: rgba(50, 168, 82);
+                color: white;
             }
     ` : type === 'secondary' ?  css`
             background: rgba(50, 168, 82, .3);
             border: none;
-            &:active{
-              background: rgba(50, 168, 82, ,7);
-            }
+              &:focus {
+                outline: none;
+                box-shadow: 0px 0px 2px red;
+                background: rgba(50, 168, 82, .3);
+                color: white;
+              }
     ` :  css`
             background: rgba(50, 168, 82, .3);
             border: 1px solid rgba(50, 168, 82);
