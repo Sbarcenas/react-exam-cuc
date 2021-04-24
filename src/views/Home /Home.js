@@ -33,6 +33,7 @@ function Home(props) {
     const {topicId} = useParams();
     const history = useHistory()
 
+
     function back() {
         if(pos > 1) {
             const val = pos - 1
@@ -53,9 +54,15 @@ function Home(props) {
     }
 
     useEffect(()=>{
-        const relPos = parseInt(topicId)
-        if (relPos >= 1 & relPos <= DATA.length) setPos(relPos)
-    },[topicId])
+        const relPos = (typeof topicId) !== undefined ? parseInt(topicId): undefined;
+        if (relPos >= 1 & relPos <= DATA.length) {
+            setPos(relPos)
+        }else if( typeof relPos === "undefined") {
+            if(pos > 1) history.push('/1');
+        } else {
+            history.push('/error');
+        }
+    },[topicId, history, pos])
 
     return (
         <Layout>

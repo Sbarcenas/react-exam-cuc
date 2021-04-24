@@ -53,10 +53,7 @@ export const Card = styled(Row)`
     align-items: center;
 `;
 
-Card.Title = styled(Title)`
-    
-`;
+Card.Title = styled(Title)``;
 
-Card.Body = styled(Paragraph)`
-    
-`;
+Card.Body = styled(Paragraph)``;
+
