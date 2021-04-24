@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Layout, Row, Col} from 'antd';
 import {Card, CustomButton, Main} from "./Styles";
-import {useParams} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 const { Header, Footer } = Layout;
 
 
@@ -29,22 +29,32 @@ const DATA = [
 ]
 
 function Home(props) {
-    const [pos, setPos] = useState(0)
+    const [pos, setPos] = useState(1)
     const {topicId} = useParams();
+    const history = useHistory()
+
     function back() {
-        if(pos > 0) setPos(pos - 1);
+        if(pos > 1) {
+            const val = pos - 1
+            history.push(`/${val}`)
+        }
     }
 
     function next() {
-        if(pos < DATA.length - 1) setPos(pos + 1);
+        if(pos < DATA.length) {
+            const val = pos + 1
+            history.push(`/${val}`)
+            setPos(val)
+        }
     }
 
     function restart() {
-        if(pos > 0) setPos(0);
+        if(pos > 1) history.push('/1');
     }
 
     useEffect(()=>{
-        if (typeof topicId === 'number' & topicId >= 0 & topicId <= DATA.length) setPos(topicId)
+        const relPos = parseInt(topicId)
+        if (relPos >= 1 & relPos <= DATA.length) setPos(relPos)
     },[topicId])
 
     return (
@@ -54,22 +64,22 @@ function Home(props) {
                 <Row align="middle" justify='center' style={{height: '100%'}} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col lg={12} sm={24}>
                         <Row justify='center' style={{marginTop:20}}>
-                        <CustomButton onClick={restart} type={pos < 1 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton onClick={restart} type={pos < 2 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Restart
                         </CustomButton>
-                        <CustomButton onClick={back} type={pos <= 0 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton onClick={back} type={pos <= 1 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Prev
                         </CustomButton>
-                        <CustomButton onClick={next} type={pos === DATA.length - 1 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton onClick={next} type={pos === DATA.length ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Next
                         </CustomButton>
                         </Row>
                         <Card>
                             <Card.Title>
-                                {DATA[pos].title}
+                                {DATA[pos-1].title}
                             </Card.Title>
                             <Card.Body>
-                                {DATA[pos].text}
+                                {DATA[pos-1].text}
                             </Card.Body>
                         </Card>
                     </Col>
