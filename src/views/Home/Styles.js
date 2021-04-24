@@ -5,6 +5,7 @@ const {Title, Paragraph} = Typography;
 
 export const Main = styled(Content)`
     height: calc(100vh - 140px);
+  overflow: hidden;
 `
 
 export const CustomButton = styled(Button).attrs(()=>({size: 'large'}))`
