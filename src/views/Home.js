@@ -82,7 +82,7 @@ function Home(props) {
     }
 
     function next() {
-        if(pos < DATA.length) setPos(pos + 1);
+        if(pos < DATA.length - 1) setPos(pos + 1);
     }
 
     function restart() {
@@ -102,7 +102,7 @@ function Home(props) {
                         <CustomButton onClick={back} type={pos <= 0 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Prev
                         </CustomButton>
-                        <CustomButton onClick={next} type="primary" size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton onClick={next} type={pos === DATA.length - 1 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Next
                         </CustomButton>
                         </Row>
