@@ -59,12 +59,15 @@ export const Card = styled(Row)`
     align-items: center;
     @media (max-width: 475px) {
       padding: 80px 0;  
-      height: 300px;
+      height: 350px;
+      min-width: 100vw;
     }
 `;
 
 Card.Title = styled(Title)`
   @media (max-width: 475px) {
+    max-width: 350px;
+    display: block;
     text-align: center;
   }
 `;
@@ -73,6 +76,7 @@ Card.Body = styled(Paragraph)`
   @media (max-width: 475px) {  
     max-width: 350px;
     text-align: center;
+    display: block;
   }
 `;
 
