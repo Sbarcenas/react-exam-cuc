@@ -63,7 +63,12 @@ export const Card = styled(Row)`
     }
 `;
 
-Card.Title = styled(Title)``;
+Card.Title = styled(Title)`
+  @media (max-width: 475px) {
+    width: 70%;
+    text-align: center;
+  }
+`;
 
 Card.Body = styled(Paragraph)`
   @media (max-width: 475px) {  
