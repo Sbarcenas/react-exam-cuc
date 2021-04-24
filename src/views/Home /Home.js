@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Layout, Row, Col} from 'antd';
 import {Card, CustomButton, Main} from "./Styles";
+import {useParams} from 'react-router-dom'
 const { Header, Footer } = Layout;
 
 
@@ -29,6 +30,7 @@ const DATA = [
 
 function Home(props) {
     const [pos, setPos] = useState(0)
+    const {topicId} = useParams();
     function back() {
         if(pos > 0) setPos(pos - 1);
     }
@@ -40,6 +42,10 @@ function Home(props) {
     function restart() {
         if(pos > 0) setPos(0);
     }
+
+    useEffect(()=>{
+        if (typeof topicId === 'number' & topicId >= 0 & topicId <= DATA.length) setPos(topicId)
+    },[topicId])
 
     return (
         <Layout>
