@@ -5,7 +5,7 @@ const {Title, Paragraph} = Typography;
 
 export const Main = styled(Content)`
     height: calc(100vh - 140px);
-  overflow: hidden;
+    overflow: hidden;
 `
 
 export const CustomButton = styled(Button).attrs(()=>({size: 'large'}))`
@@ -16,6 +16,11 @@ export const CustomButton = styled(Button).attrs(()=>({size: 'large'}))`
         opacity: 0.8;
         background: rgba(50, 168, 82);
     }
+
+  @media (max-width: 768px) {
+    min-width: 80px;
+  }
+  
     ${({type}) => type === 'primary' ? css`
             background: rgba(50, 168, 82);
             border: none;
@@ -52,9 +57,18 @@ export const Card = styled(Row)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 475px) {  
+      padding: 80px 0;  
+      height: 300px;
+    }
 `;
 
 Card.Title = styled(Title)``;
 
-Card.Body = styled(Paragraph)``;
+Card.Body = styled(Paragraph)`
+  @media (max-width: 475px) {  
+    width: 70%;
+    text-align: center;
+  }
+`;
 
