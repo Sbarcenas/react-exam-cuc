@@ -96,13 +96,13 @@ function Home(props) {
                 <Row align="middle" justify='center' style={{height: '100%'}} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col lg={12} sm={24}>
                         <Row justify='center' style={{marginTop:20}}>
-                        <CustomButton type={pos < 1 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton onClick={restart} type={pos < 1 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Restart
                         </CustomButton>
-                        <CustomButton type={pos <= 0 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton onClick={back} type={pos <= 0 ? "secondary" : "primary"} size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Prev
                         </CustomButton>
-                        <CustomButton type="primary" size={'Large'} color={'rgba(50, 168, 82, 1)'}>
+                        <CustomButton onClick={next} type="primary" size={'Large'} color={'rgba(50, 168, 82, 1)'}>
                             Next
                         </CustomButton>
                         </Row>
