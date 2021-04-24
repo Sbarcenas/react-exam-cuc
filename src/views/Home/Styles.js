@@ -57,7 +57,7 @@ export const Card = styled(Row)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media (max-width: 475px) {  
+    @media (max-width: 475px) {
       padding: 80px 0;  
       height: 300px;
     }
@@ -65,14 +65,13 @@ export const Card = styled(Row)`
 
 Card.Title = styled(Title)`
   @media (max-width: 475px) {
-    width: 70%;
     text-align: center;
   }
 `;
 
 Card.Body = styled(Paragraph)`
   @media (max-width: 475px) {  
-    width: 70%;
+    max-width: 350px;
     text-align: center;
   }
 `;
